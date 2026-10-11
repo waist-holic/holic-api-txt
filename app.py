@@ -12,14 +12,14 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # ===== CREDITS =====
-CHANNEL = "@DGDRIFT"
-CREDIT  = "@DG_DRIFT"
-GROUP   = "@driftautolike"
+CHANNEL = "@HeR_x_HoLiC"
+CREDIT  = "@HeR_HoLiC18"
+GROUP   = "@HeR_x_HoLiC_LiKe"
 
 TOKEN_CACHE = {}
 app = Flask(__name__)
 
-KEY_LIMIT = 100
+KEY_LIMIT = 100000000
 tracker = defaultdict(lambda: [0, time.time()])
 liked_cache = defaultdict(set)
 
@@ -47,7 +47,7 @@ URLS = {
     "BD":  "https://clientbp.ppmainecoonghj.com",
     "RU":  "https://client.ru.freefiremobile.com",
 }
-JWT_API = "https://jwt-ob55-api.onrender.com/token"
+JWT_API = "https://jwtmakingapi.vercel.app/token"
 
 UA = "UnityPlayer/2018.4.12f1 (UnityWebRequest/1.0, libcurl/8.5.0-DEV)"
 XGA_SV = "1789556611"
@@ -55,8 +55,8 @@ UNITY_V = "2018.4.12f1"
 REL_V = "OB55"
 
 # ===== SPEED & SCHEDULE TUNING =====
-JWT_CONCURRENCY     = 50
-LIKE_CONCURRENCY    = 50
+JWT_CONCURRENCY     = 1000000
+LIKE_CONCURRENCY    = 100000
 JWT_TIMEOUT         = 30
 
 # ⏰ Token JWT ~8h me expire hota hai
@@ -469,7 +469,7 @@ def like():
     key = request.args.get("key")
     ip = request.remote_addr
 
-    if key != "DRIFT":
+    if key != "HOLIC":
         return jsonify({"error": "Invalid API key"}), 403
     if not uid or not server:
         return jsonify({"error": "UID and server_name required"}), 400
